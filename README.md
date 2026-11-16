@@ -4,6 +4,8 @@ A short study by Sifang Ni, Research Assistant at Cranfield University, written 
 
 **Question.** What could machine learning add to a line fit for a sensor like this, and what would it need to be trained on?
 
+**Summary.** From the open data I recomputed the paper's calibration line and its 1.1 ppm single-point limit of detection, and refitted the seven-Lorentzian curve (residual s.d. 2.04e-3 AU against the authors' 2.06e-3 AU). In simulated spectra at 2 ppm, a small neural network gave a third less scatter than a template least-squares fit on disturbances it was trained on (0.79 against 1.18 ppm) and twice as much on an unseen one (1.06 against 0.51 ppm). Under white noise alone it did not beat a template-only fit (0.14 against 0.09 ppm). The fringes are a generic structured disturbance for testing this; the paper reports none. The disturbances the paper does name, pressure-dependent linewidth, baseline drift and speckle, would be the next ones to try.
+
 ## Data and attribution
 
 Measured data: Davis et al. (2023), Cranfield Online Research Data, [doi:10.17862/cranfield.rd.22700626](https://doi.org/10.17862/cranfield.rd.22700626), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Seven CSV files are copied unmodified into [`data/davis2023/`](data/davis2023/README.md). The code is MIT-licensed; every number below is read from `results/*.json`.
